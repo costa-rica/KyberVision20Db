@@ -1,22 +1,22 @@
+// src/models/_index.ts
 import { sequelize } from "./_connection";
 
-// init each model
 import { initUser, User } from "./User";
 import { initContractUserAction, ContractUserAction } from "./ContractUserAction";
-// ...repeat for all models
-
 import { applyAssociations } from "./_associations";
 
+/** Initialize all models and associations once per process. */
 export function initModels() {
   initUser();
   initContractUserAction();
-  // ...init others
   applyAssociations();
 
   return {
     sequelize,
     User,
     ContractUserAction,
-    // ...export the rest
   };
 }
+
+// 👇 Export named items for consumers
+export { sequelize, User, ContractUserAction };
