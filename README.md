@@ -2,17 +2,24 @@
 
 A Sequelize SQLite module for the KyberVision20API and microservices suite of applications.
 
-- Renamed Tables
+## v20 TypeScript Migration (DB Models)
 
-  - CompetitionContracts: ContractLeagueTeam
-  - playerContracts: ContractTeamPlayer
-  - groupContracts: ContractTeamUser (Tribe)
-  - syncContracts: ContractVideoAction
-    - renamed and restructured to delta time for each action
+We are migrating the Sequelize models from **KyberVision18Db** (JavaScript) to **KyberVision20Db** (TypeScript).  
+The canonical examples are `User.ts` and `ContractUserAction.ts`. All remaining models should follow the same pattern.
 
-- we are using YouTube to stream the videos
+- Implementation guide: see **docs/MODELING_GUIDE.md**
+- Legacy references (v18 JS): **docs/KyberVision18DbReference/**
+- Package usage: `npm i file:../KyberVision20Db` then `import { initModels } from "kybervision20db";`
+- Build before commit: `npm run build` (we commit `dist/`)
 
-### API v20.0.0
+If adding a new model, ensure:
+
+1. `Model.init` lives in `src/models/<Model>.ts` and returns the class via `init<Model>()`.
+2. Foreign keys use `snake_case` columns; model names are `PascalCase`.
+3. Add the model to `src/models/_index.ts` and wire associations in `_associations.ts`.
+4. Run `npm run build`, and verify types are emitted (`dist/index.d.ts`).
+
+### v20.0.0
 
 ## installation
 
