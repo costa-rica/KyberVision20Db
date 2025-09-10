@@ -14,10 +14,14 @@ function initUser() {
             autoIncrement: true,
             primaryKey: true,
         },
+        firstName: {
+            type: sequelize_1.DataTypes.STRING,
+        },
+        lastName: {
+            type: sequelize_1.DataTypes.STRING,
+        },
         username: {
             type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
-            unique: true,
         },
         password: {
             type: sequelize_1.DataTypes.STRING,

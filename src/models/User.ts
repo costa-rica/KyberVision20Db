@@ -12,6 +12,8 @@ import {
     InferCreationAttributes<User>
   > {
     declare id: CreationOptional<number>;
+    declare firstName: string;
+    declare lastName: string;
     declare username: string;
     declare password: string;
     declare email: string;
@@ -26,10 +28,14 @@ import {
           autoIncrement: true,
           primaryKey: true,
         },
+        firstName: {
+          type: DataTypes.STRING,
+        },
+        lastName: {
+          type: DataTypes.STRING,
+        },
         username: {
           type: DataTypes.STRING,
-          allowNull: false,
-          unique: true,
         },
         password: {
           type: DataTypes.STRING,
