@@ -46,7 +46,7 @@ function initAction() {
             type: sequelize_1.DataTypes.DATE,
             allowNull: false,
         },
-        zone: {
+        area: {
             type: sequelize_1.DataTypes.STRING,
             allowNull: false,
         },

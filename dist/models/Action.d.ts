@@ -9,7 +9,7 @@ export declare class Action extends Model<InferAttributes<Action>, InferCreation
     subtype: number | null;
     quality: string;
     timestamp: Date;
-    zone: string;
+    area: string;
     setNumber: number;
     scoreTeamAnalyzed: number;
     scoreTeamOther: number;
