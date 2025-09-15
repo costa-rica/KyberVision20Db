@@ -45,7 +45,10 @@ function applyAssociations() {
         foreignKey: "playerId",
         onDelete: "CASCADE",
     });
-    Team_1.Team.hasMany(ContractTeamPlayer_1.ContractTeamPlayer, { foreignKey: "teamId", onDelete: "CASCADE" });
+    Team_1.Team.hasMany(ContractTeamPlayer_1.ContractTeamPlayer, {
+        foreignKey: "teamId",
+        onDelete: "CASCADE",
+    });
     ContractTeamPlayer_1.ContractTeamPlayer.belongsTo(Player_1.Player, { foreignKey: "playerId" });
     ContractTeamPlayer_1.ContractTeamPlayer.belongsTo(Team_1.Team, { foreignKey: "teamId" });
     // Player & User Associations
@@ -53,13 +56,26 @@ function applyAssociations() {
         foreignKey: "playerId",
         onDelete: "CASCADE",
     });
-    User_1.User.hasOne(ContractPlayerUser_1.ContractPlayerUser, { foreignKey: "userId", onDelete: "CASCADE" });
+    User_1.User.hasOne(ContractPlayerUser_1.ContractPlayerUser, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+    });
     ContractPlayerUser_1.ContractPlayerUser.belongsTo(Player_1.Player, { foreignKey: "playerId" });
     ContractPlayerUser_1.ContractPlayerUser.belongsTo(User_1.User, { foreignKey: "userId" });
     // Session & Team Associations
-    Session_1.Session.belongsTo(Team_1.Team, { foreignKey: "teamId" });
+    // Session.belongsTo(Team, { foreignKey: "teamId" });
+    Session_1.Session.belongsTo(Team_1.Team, {
+        foreignKey: "teamId",
+        onDelete: "CASCADE", // applies to deleting the *Team* (parent)
+    });
+    // if a team is deleted all corresponding sessions are deleted
     // Video & Session Association
-    Video_1.Video.belongsTo(Session_1.Session, { foreignKey: "sessionId" });
+    // Video.belongsTo(Session, { foreignKey: "sessionId" });
+    Video_1.Video.belongsTo(Session_1.Session, {
+        foreignKey: "sessionId",
+        onDelete: "CASCADE", // or "SET NULL" if you prefer to keep videos
+    });
+    // if a session is deleted all corresponding videos are deleted
     // User & Team Associations: ContractTeamUser (AKA Tribes)
     User_1.User.hasMany(ContractTeamUser_1.ContractTeamUser, { foreignKey: "userId", onDelete: "CASCADE" });
     Team_1.Team.hasMany(ContractTeamUser_1.ContractTeamUser, { foreignKey: "teamId", onDelete: "CASCADE" });
