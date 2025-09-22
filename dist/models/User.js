@@ -25,7 +25,7 @@ function initUser() {
         },
         password: {
             type: sequelize_1.DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         email: {
             type: sequelize_1.DataTypes.STRING,

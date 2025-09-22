@@ -4,7 +4,7 @@ export declare class User extends Model<InferAttributes<User>, InferCreationAttr
     firstName: string;
     lastName: string;
     username: string;
-    password: string;
+    password: string | null;
     email: string;
     isAdminForKvManagerWebsite: CreationOptional<boolean>;
 }
