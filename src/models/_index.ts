@@ -39,6 +39,7 @@ import {
 	initPendingInvitations,
 	PendingInvitations,
 } from "./PendingInvitations";
+import { initPing, Ping } from "./Ping";
 import { applyAssociations } from "./_associations";
 
 /** Initialize all models and associations once per process. */
@@ -60,6 +61,7 @@ export function initModels() {
 	initContractPlayerUser();
 	initOpponentServeTimestamp();
 	initPendingInvitations();
+	initPing();
 	applyAssociations();
 
 	return {
@@ -81,6 +83,7 @@ export function initModels() {
 		ContractPlayerUser,
 		OpponentServeTimestamp,
 		PendingInvitations,
+		Ping,
 	};
 }
 
@@ -104,4 +107,5 @@ export {
 	ContractPlayerUser,
 	OpponentServeTimestamp,
 	PendingInvitations,
+	Ping,
 };

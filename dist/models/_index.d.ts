@@ -16,6 +16,7 @@ import { ContractLeagueTeam } from "./ContractLeagueTeam";
 import { ContractPlayerUser } from "./ContractPlayerUser";
 import { OpponentServeTimestamp } from "./OpponentServeTimestamp";
 import { PendingInvitations } from "./PendingInvitations";
+import { Ping } from "./Ping";
 /** Initialize all models and associations once per process. */
 export declare function initModels(): {
     sequelize: import("sequelize").Sequelize;
@@ -36,5 +37,6 @@ export declare function initModels(): {
     ContractPlayerUser: typeof ContractPlayerUser;
     OpponentServeTimestamp: typeof OpponentServeTimestamp;
     PendingInvitations: typeof PendingInvitations;
+    Ping: typeof Ping;
 };
-export { sequelize, User, ContractUserAction, Action, League, Team, Player, Session, Video, Script, Complex, ContractTeamPlayer, ContractVideoAction, ContractTeamUser, ContractLeagueTeam, ContractPlayerUser, OpponentServeTimestamp, PendingInvitations, };
+export { sequelize, User, ContractUserAction, Action, League, Team, Player, Session, Video, Script, Complex, ContractTeamPlayer, ContractVideoAction, ContractTeamUser, ContractLeagueTeam, ContractPlayerUser, OpponentServeTimestamp, PendingInvitations, Ping, };

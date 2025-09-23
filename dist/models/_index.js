@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PendingInvitations = exports.OpponentServeTimestamp = exports.ContractPlayerUser = exports.ContractLeagueTeam = exports.ContractTeamUser = exports.ContractVideoAction = exports.ContractTeamPlayer = exports.Complex = exports.Script = exports.Video = exports.Session = exports.Player = exports.Team = exports.League = exports.Action = exports.ContractUserAction = exports.User = exports.sequelize = void 0;
+exports.Ping = exports.PendingInvitations = exports.OpponentServeTimestamp = exports.ContractPlayerUser = exports.ContractLeagueTeam = exports.ContractTeamUser = exports.ContractVideoAction = exports.ContractTeamPlayer = exports.Complex = exports.Script = exports.Video = exports.Session = exports.Player = exports.Team = exports.League = exports.Action = exports.ContractUserAction = exports.User = exports.sequelize = void 0;
 exports.initModels = initModels;
 // src/models/_index.ts
 const _connection_1 = require("./_connection");
@@ -39,6 +39,8 @@ const OpponentServeTimestamp_1 = require("./OpponentServeTimestamp");
 Object.defineProperty(exports, "OpponentServeTimestamp", { enumerable: true, get: function () { return OpponentServeTimestamp_1.OpponentServeTimestamp; } });
 const PendingInvitations_1 = require("./PendingInvitations");
 Object.defineProperty(exports, "PendingInvitations", { enumerable: true, get: function () { return PendingInvitations_1.PendingInvitations; } });
+const Ping_1 = require("./Ping");
+Object.defineProperty(exports, "Ping", { enumerable: true, get: function () { return Ping_1.Ping; } });
 const _associations_1 = require("./_associations");
 /** Initialize all models and associations once per process. */
 function initModels() {
@@ -59,6 +61,7 @@ function initModels() {
     (0, ContractPlayerUser_1.initContractPlayerUser)();
     (0, OpponentServeTimestamp_1.initOpponentServeTimestamp)();
     (0, PendingInvitations_1.initPendingInvitations)();
+    (0, Ping_1.initPing)();
     (0, _associations_1.applyAssociations)();
     return {
         sequelize: _connection_1.sequelize,
@@ -79,5 +82,6 @@ function initModels() {
         ContractPlayerUser: ContractPlayerUser_1.ContractPlayerUser,
         OpponentServeTimestamp: OpponentServeTimestamp_1.OpponentServeTimestamp,
         PendingInvitations: PendingInvitations_1.PendingInvitations,
+        Ping: Ping_1.Ping,
     };
 }
